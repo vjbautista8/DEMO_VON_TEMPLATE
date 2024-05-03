@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_minimal_kit_cra_js=self.webpackChunk_minimal_kit_cra_js||[]).push([[8726],{69573:function(n,r,i){i.r(r),i.d(r,{default:function(){return a}});var t=i(6907),e=i(66505),s=i(80184);function a(){return(0,s.jsxs)(s.Fragment,{children:[(0,s.jsx)(t.ql,{children:(0,s.jsx)("title",{children:" Dashboard: Invertory List"})}),(0,s.jsx)(e.J0,{})]})}}}]);
+//# sourceMappingURL=8726.a81ca04e.chunk.js.map
