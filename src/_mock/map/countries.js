@@ -10,6 +10,7 @@ export const countries = [
     country_code: 'AW',
     capital: 'Oranjestad',
     photoUrl: _mock.image.cover(1),
+    make: 'toyota',
   },
   {
     timezones: ['Asia/Kabul'],
@@ -18,6 +19,7 @@ export const countries = [
     country_code: 'AF',
     capital: 'Kabul',
     photoUrl: _mock.image.cover(2),
+    make: 'toyota',
   },
   {
     timezones: ['Africa/Luanda'],

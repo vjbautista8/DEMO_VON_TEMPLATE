@@ -36,6 +36,7 @@ export default function TourFilters({
   destinationOptions,
   tourGuideOptions,
   serviceOptions,
+  statusOptions,
   //
   dateError,
 }) {
@@ -47,6 +48,16 @@ export default function TourFilters({
       onFilters('services', checked);
     },
     [filters.services, onFilters]
+  );
+  const handleFilterStatus = useCallback(
+    (newValue) => {
+      console.log('STATUS', [...filters.status, newValue]);
+      const checked = filters.status.includes(newValue)
+        ? filters.status.filter((value) => value !== newValue)
+        : [...filters.status, newValue];
+      onFilters('status', checked);
+    },
+    [filters.status, onFilters]
   );
 
   const handleFilterStartDate = useCallback(
@@ -128,7 +139,7 @@ export default function TourFilters({
   const renderDestination = (
     <Stack>
       <Typography variant="subtitle2" sx={{ mb: 1.5 }}>
-        Destination
+        Make
       </Typography>
 
       <Autocomplete
@@ -138,9 +149,9 @@ export default function TourFilters({
         getOptionLabel={(option) => option}
         value={filters.destination}
         onChange={(event, newValue) => handleFilterDestination(newValue)}
-        renderInput={(params) => <TextField placeholder="Select Destination" {...params} />}
+        renderInput={(params) => <TextField placeholder="Select Make" {...params} />}
         renderOption={(props, option) => {
-          const { code, label, phone } = destinationOptions.filter(
+          const { code, label, phone, make } = destinationOptions.filter(
             (country) => country.label === option
           )[0];
 
@@ -150,13 +161,8 @@ export default function TourFilters({
 
           return (
             <li {...props} key={label}>
-              <Iconify
-                key={label}
-                icon={`circle-flags:${code.toLowerCase()}`}
-                width={28}
-                sx={{ mr: 1 }}
-              />
-              {label} ({code}) +{phone}
+              <Iconify key={label} icon="tabler:brand-toyota" width={28} sx={{ mr: 1 }} />
+              Toyota
             </li>
           );
         }}
@@ -165,7 +171,7 @@ export default function TourFilters({
             <Chip
               {...getTagProps({ index })}
               key={option}
-              label={option}
+              label="Toyota"
               size="small"
               variant="soft"
             />
@@ -220,7 +226,7 @@ export default function TourFilters({
   const renderServices = (
     <Stack>
       <Typography variant="subtitle2" sx={{ mb: 1 }}>
-        Status
+        Services
       </Typography>
       {serviceOptions.map((option) => (
         <FormControlLabel
@@ -229,6 +235,25 @@ export default function TourFilters({
             <Checkbox
               checked={filters.services.includes(option)}
               onClick={() => handleFilterServices(option)}
+            />
+          }
+          label={option}
+        />
+      ))}
+    </Stack>
+  );
+  const renderStatus = (
+    <Stack>
+      <Typography variant="subtitle2" sx={{ mb: 1 }}>
+        Status
+      </Typography>
+      {statusOptions.map((option) => (
+        <FormControlLabel
+          key={option}
+          control={
+            <Checkbox
+              checked={filters.status.includes(option)}
+              onClick={() => handleFilterStatus(option)}
             />
           }
           label={option}
@@ -275,7 +300,9 @@ export default function TourFilters({
 
             {renderTourGuide} */}
 
+            {renderStatus}
             {renderServices}
+            {renderDestination}
           </Stack>
         </Scrollbar>
       </Drawer>
@@ -294,5 +321,6 @@ TourFilters.propTypes = {
   onResetFilters: PropTypes.func,
   open: PropTypes.bool,
   serviceOptions: PropTypes.array,
+  statusOptions: PropTypes.array,
   tourGuideOptions: PropTypes.array,
 };

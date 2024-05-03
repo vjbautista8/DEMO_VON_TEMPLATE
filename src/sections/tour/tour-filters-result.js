@@ -29,6 +29,10 @@ export default function TourFiltersResult({
     const newValue = filters.services.filter((item) => item !== inputValue);
     onFilters('services', newValue);
   };
+  const handleRemoveStatus = (inputValue) => {
+    const newValue = filters.status.filter((item) => item !== inputValue);
+    onFilters('status', newValue);
+  };
 
   const handleRemoveAvailable = () => {
     onFilters('startDate', null);
@@ -50,7 +54,7 @@ export default function TourFiltersResult({
       <Box sx={{ typography: 'body2' }}>
         <strong>{results}</strong>
         <Box component="span" sx={{ color: 'text.secondary', ml: 0.25 }}>
-          results found
+          results found. This filter is not working. The result is random.
         </Box>
       </Box>
 
@@ -73,6 +77,18 @@ export default function TourFiltersResult({
             ))}
           </Block>
         )}
+        {!!filters.status.length && (
+          <Block label="Status:">
+            {filters.status.map((item) => (
+              <Chip
+                key={item}
+                label={item}
+                size="small"
+                onDelete={() => handleRemoveStatus(item)}
+              />
+            ))}
+          </Block>
+        )}
 
         {!!filters.tourGuides.length && (
           <Block label="Tour guide:">
@@ -89,11 +105,11 @@ export default function TourFiltersResult({
         )}
 
         {!!filters.destination.length && (
-          <Block label="Destination:">
+          <Block label="Make:">
             {filters.destination.map((item) => (
               <Chip
                 key={item}
-                label={item}
+                label="Toyota"
                 size="small"
                 onDelete={() => handleRemoveDestination(item)}
               />

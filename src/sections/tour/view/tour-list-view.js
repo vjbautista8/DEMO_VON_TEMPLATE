@@ -33,6 +33,7 @@ import TourFiltersResult from '../tour-filters-result';
 
 const defaultFilters = {
   destination: [],
+  status: [],
   tourGuides: [],
   services: [],
   startDate: null,
@@ -71,6 +72,7 @@ export default function TourListView() {
     !!filters.destination.length ||
     !!filters.tourGuides.length ||
     !!filters.services.length ||
+    !!filters.status.length ||
     (!!filters.startDate && !!filters.endDate);
 
   const notFound = !dataFiltered.length && canReset;
@@ -137,7 +139,8 @@ export default function TourListView() {
           canReset={canReset}
           onResetFilters={handleResetFilters}
           //
-          serviceOptions={['Brand New', 'Used', 'No Keys Available', 'Could Not Locate']}
+          serviceOptions={['No Keys Available', 'Could Not Locate']}
+          statusOptions={['Brand New', 'Used']}
           tourGuideOptions={_tourGuides}
           destinationOptions={countries}
           //
