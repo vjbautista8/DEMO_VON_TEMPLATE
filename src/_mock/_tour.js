@@ -140,7 +140,7 @@ export const _tours = [...Array(12)].map((_, index) => {
     bookers: BOOKER,
     content: CONTENT,
     tags: _tags.slice(0, 5),
-    name: _mock.tourName(index),
+    name: '20004331A | 2015 | Toyota | Camry',
     createdAt: _mock.time(index),
     durations: '4 days 3 nights',
     price: _mock.number.price(index),

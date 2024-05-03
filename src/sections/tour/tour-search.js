@@ -36,7 +36,7 @@ export default function TourSearch({ query, results, onSearch, hrefItem }) {
   return (
     // <></>
     <Autocomplete
-      sx={{ width: { xs: 1, sm: 260 } }}
+      sx={{ width: { xs: 1, sm: 400 } }}
       autoHighlight
       popupIcon={null}
       options={results}
@@ -48,7 +48,7 @@ export default function TourSearch({ query, results, onSearch, hrefItem }) {
         popper: {
           placement: 'bottom-start',
           sx: {
-            minWidth: 320,
+            minWidth: 350,
           },
         },
         paper: {
@@ -83,7 +83,7 @@ export default function TourSearch({ query, results, onSearch, hrefItem }) {
             <Avatar
               key={tour.id}
               alt={tour.name}
-              src={tour.images[0]}
+              src="/DEMO_VON_TEMPLATE/assets/camry_1.jpg"
               variant="rounded"
               sx={{
                 width: 48,
