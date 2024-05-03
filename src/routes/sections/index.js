@@ -24,7 +24,7 @@ export default function Router() {
 
     // SET INDEX PAGE WITH HOME PAGE
     {
-      path: '/',
+      path: '/DEMO_VON_TEMPLATE',
       element: <h1>Welcome</h1>,
     },
 
