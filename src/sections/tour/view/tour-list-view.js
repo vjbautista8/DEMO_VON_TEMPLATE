@@ -169,7 +169,7 @@ export default function TourListView() {
             component={RouterLink}
             href={paths.dashboard.tour.new}
             variant="contained"
-            startIcon={<Iconify icon="mingcute:add-line" />}
+            startIcon={<Iconify icon="solar:refresh-bold" />}
           >
             Sync Now
           </Button>

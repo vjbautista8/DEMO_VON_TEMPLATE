@@ -23,6 +23,7 @@ import Iconify from 'src/components/iconify';
 import CustomPopover, { usePopover } from 'src/components/custom-popover';
 import { shortDateLabel } from 'src/components/custom-date-range-picker';
 import Carousel, { CarouselArrowIndex, CarouselArrows, useCarousel } from 'src/components/carousel';
+import Lightbox, { useLightBox } from 'src/components/lightbox';
 
 // ----------------------------------------------------------------------
 
@@ -43,7 +44,16 @@ export default function TourItem({ tour, onView, onEdit, onDelete }) {
   } = tour;
 
   const shortLabel = shortDateLabel(available.startDate, available.endDate);
+  // const slides = gallery.map((slide) => ({
+  //   src: slide.imageUrl,
+  // }));
+  const slides = [
+    { src: '/DEMO_VON_TEMPLATE/assets/camry_1.jpg' },
+    { src: '/DEMO_VON_TEMPLATE/assets/camry_2.jpg' },
+    { src: '/DEMO_VON_TEMPLATE/assets/camry_3.jpg' },
+  ];
 
+  const lightbox = useLightBox(slides);
   const renderRating = (
     <Stack
       direction="row"
@@ -59,7 +69,7 @@ export default function TourItem({ tour, onView, onEdit, onDelete }) {
         bgcolor: 'warning.dark',
       }}
     >
-      <Iconify icon="solar:bookmark-linear" sx={{ color: 'warning.lighter', mr: 0.25 }} /> Could Not
+      <Iconify icon="solar:bookmark-bold" sx={{ color: 'warning.lighter', mr: 0.25 }} /> Could Not
       Locate
     </Stack>
   );
@@ -102,25 +112,28 @@ export default function TourItem({ tour, onView, onEdit, onDelete }) {
       {renderPrice}
       {renderRating}
 
-      <Stack flexGrow={1} sx={{ position: 'relative' }}>
+      <Stack flexGrow={1} sx={{ position: 'relative', cursor: 'pointer', color: 'common.white' }}>
         <Image
           alt={images[0]}
-          src="https://vjbautista8.github.io/DEMO_VON_TEMPLATE/assets/camry_1.jpg"
+          src="/DEMO_VON_TEMPLATE/assets/camry_1.jpg"
+          onClick={() => lightbox.onOpen('/DEMO_VON_TEMPLATE/assets/camry_1.jpg')}
           sx={{ borderRadius: 1, height: 164, width: 1 }}
         />
       </Stack>
       <Stack spacing={0.5}>
         <Image
           alt={images[1]}
-          src="https://vjbautista8.github.io/DEMO_VON_TEMPLATE/assets/camry_1.jpg"
+          src="/DEMO_VON_TEMPLATE/assets/camry_2.jpg"
+          onClick={() => lightbox.onOpen('/DEMO_VON_TEMPLATE/assets/camry_2.jpg')}
           ratio="1/1"
-          sx={{ borderRadius: 1, width: 80 }}
+          sx={{ borderRadius: 1, width: 80, cursor: 'pointer', color: 'common.white' }}
         />
         <Image
           alt={images[2]}
-          src="https://vjbautista8.github.io/DEMO_VON_TEMPLATE/assets/camry_1.jpg"
+          src="/DEMO_VON_TEMPLATE/assets/camry_3.jpg"
+          onClick={() => lightbox.onOpen('/DEMO_VON_TEMPLATE/assets/camry_3.jpg')}
           ratio="1/1"
-          sx={{ borderRadius: 1, width: 80 }}
+          sx={{ borderRadius: 1, width: 80, cursor: 'pointer', color: 'common.white' }}
         />
       </Stack>
     </Stack>
@@ -322,6 +335,12 @@ export default function TourItem({ tour, onView, onEdit, onDelete }) {
           {renderInfo1}
         </Carousel>
       </Card>
+      <Lightbox
+        index={lightbox.selected}
+        slides={slides}
+        open={lightbox.open}
+        close={lightbox.onClose}
+      />
       <CustomPopover
         open={popover.open}
         onClose={popover.onClose}
