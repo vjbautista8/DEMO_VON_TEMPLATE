@@ -24,12 +24,8 @@ export default function Router() {
 
     // SET INDEX PAGE WITH HOME PAGE
     {
-      path: '/DEMO_VON_TEMPLATE',
-      element: (
-        <MainLayout>
-          <HomePage />
-        </MainLayout>
-      ),
+      path: '/',
+      element: <h1>Welcome</h1>,
     },
 
     // Auth routes
@@ -37,15 +33,15 @@ export default function Router() {
     // ...authDemoRoutes,
 
     // Dashboard routes
-    ...dashboardRoutes,
+    // ...dashboardRoutes,
 
     // Main routes
-    ...mainRoutes,
+    // ...mainRoutes,
 
-    // Components routes
-    ...componentsRoutes,
+    // // Components routes
+    // ...componentsRoutes,
 
     // No match 404
-    { path: '*', element: <Navigate to="/404" replace /> },
+    { path: '*', element: <h1>Not Found</h1> },
   ]);
 }

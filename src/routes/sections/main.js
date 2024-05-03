@@ -40,11 +40,11 @@ export const mainRoutes = [
       </MainLayout>
     ),
     children: [
-      { path: 'about-us', element: <AboutPage /> },
-      { path: 'contact-us', element: <ContactPage /> },
-      { path: 'faqs', element: <FaqsPage /> },
+      { path: '/DEMO_VON_TEMPLATE/about-us', element: <AboutPage /> },
+      { path: '/DEMO_VON_TEMPLATE/contact-us', element: <ContactPage /> },
+      { path: '/DEMO_VON_TEMPLATE/faqs', element: <FaqsPage /> },
       {
-        path: 'product',
+        path: '/DEMO_VON_TEMPLATE/product',
         children: [
           { element: <ProductListPage />, index: true },
           { path: 'list', element: <ProductListPage /> },
@@ -71,8 +71,8 @@ export const mainRoutes = [
       </SimpleLayout>
     ),
     children: [
-      { path: 'pricing', element: <PricingPage /> },
-      { path: 'payment', element: <PaymentPage /> },
+      { path: '/DEMO_VON_TEMPLATE/pricing', element: <PricingPage /> },
+      { path: '/DEMO_VON_TEMPLATE/payment', element: <PaymentPage /> },
     ],
   },
   {
@@ -84,11 +84,11 @@ export const mainRoutes = [
       </CompactLayout>
     ),
     children: [
-      { path: 'coming-soon', element: <ComingSoonPage /> },
-      { path: 'maintenance', element: <MaintenancePage /> },
-      { path: '500', element: <Page500 /> },
-      { path: '404', element: <Page404 /> },
-      { path: '403', element: <Page403 /> },
+      { path: '/DEMO_VON_TEMPLATE/coming-soon', element: <ComingSoonPage /> },
+      { path: '/DEMO_VON_TEMPLATE/maintenance', element: <MaintenancePage /> },
+      { path: '/DEMO_VON_TEMPLATE/500', element: <Page500 /> },
+      { path: '/DEMO_VON_TEMPLATE/404', element: <Page404 /> },
+      { path: '/DEMO_VON_TEMPLATE/403', element: <Page403 /> },
     ],
   },
 ];

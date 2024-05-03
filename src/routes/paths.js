@@ -11,7 +11,7 @@ const MOCK_TITLE = _postTitles[2];
 const ROOTS = {
   AUTH: '/auth',
   AUTH_DEMO: '/auth-demo',
-  DASHBOARD: '/dashboard',
+  DASHBOARD: '/DEMO_VON_TEMPLATE/dashboard',
 };
 
 // ----------------------------------------------------------------------
@@ -24,9 +24,9 @@ export const paths = {
   about: '/about-us',
   contact: '/contact-us',
   faqs: '/faqs',
-  page403: '/403',
-  page404: '/404',
-  page500: '/500',
+  page403: '/DEMO_VON_TEMPLATE//403',
+  page404: '/DEMO_VON_TEMPLATE//404',
+  page500: '/DEMO_VON_TEMPLATE//500',
   components: '/components',
   docs: 'https://docs.minimals.cc',
   changelog: 'https://docs.minimals.cc/changelog',
