@@ -1,6 +1,10 @@
+import { lazy, Suspense } from 'react';
 import { Navigate, useRoutes } from 'react-router-dom';
+// components
+import { LoadingScreen } from 'src/components/loading-screen';
 // layouts
 import MainLayout from 'src/layouts/main';
+import DashboardLayout from 'src/layouts/dashboard/layout';
 // config
 // import { PATH_AFTER_LOGIN } from 'src/config-global';
 //
@@ -11,7 +15,7 @@ import { dashboardRoutes } from './dashboard';
 import { componentsRoutes } from './components';
 
 // ----------------------------------------------------------------------
-
+const TourListPage = lazy(() => import('src/pages/dashboard/tour/list'));
 export default function Router() {
   return useRoutes([
     // SET INDEX PAGE WITH SKIP HOME PAGE
@@ -25,7 +29,13 @@ export default function Router() {
     // SET INDEX PAGE WITH HOME PAGE
     {
       path: '/DEMO_VON_TEMPLATE',
-      element: <h1>Welcome</h1>,
+      element: (
+        <DashboardLayout>
+          <Suspense fallback={<LoadingScreen />}>
+            <TourListPage />
+          </Suspense>
+        </DashboardLayout>
+      ),
     },
 
     // Auth routes

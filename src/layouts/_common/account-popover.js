@@ -85,7 +85,7 @@ export default function AccountPopover() {
         }}
       >
         <Avatar
-          src={user?.photoURL}
+          src="/DEMO_VON_TEMPLATE/logo/vvvv.jpg"
           alt={user?.displayName}
           sx={{
             width: 36,
@@ -93,18 +93,18 @@ export default function AccountPopover() {
             border: (theme) => `solid 2px ${theme.palette.background.default}`,
           }}
         >
-          {user?.displayName.charAt(0).toUpperCase()}
+          Von John
         </Avatar>
       </IconButton>
 
-      <CustomPopover open={popover.open} onClose={popover.onClose} sx={{ width: 200, p: 0 }}>
+      <CustomPopover open={popover.open} onClose={popover.onClose} sx={{ width: 250, p: 0 }}>
         <Box sx={{ p: 2, pb: 1.5 }}>
           <Typography variant="subtitle2" noWrap>
-            {user?.displayName}
+            Von John Bautista
           </Typography>
 
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-            {user?.email}
+            von@thecrmcarpenters.com
           </Typography>
         </Box>
 
