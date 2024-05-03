@@ -63,7 +63,7 @@ export default function App() {
   useScrollToTop();
 
   return (
-    <AuthProvider>
+    <>
       <LocalizationProvider>
         <SettingsProvider
           defaultSettings={{
@@ -81,15 +81,15 @@ export default function App() {
                 <CheckoutProvider>
                   <SettingsDrawer />
                   <ProgressBar />
-                  <AuthConsumer>
+                  <>
                     <Router />
-                  </AuthConsumer>
+                  </>
                 </CheckoutProvider>
               </SnackbarProvider>
             </MotionLazy>
           </ThemeProvider>
         </SettingsProvider>
       </LocalizationProvider>
-    </AuthProvider>
+    </>
   );
 }

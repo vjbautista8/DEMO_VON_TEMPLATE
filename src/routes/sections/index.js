@@ -24,7 +24,7 @@ export default function Router() {
 
     // SET INDEX PAGE WITH HOME PAGE
     {
-      path: '/',
+      path: '/DEMO_VON_TEMPLATE',
       element: (
         <MainLayout>
           <HomePage />
@@ -33,8 +33,8 @@ export default function Router() {
     },
 
     // Auth routes
-    ...authRoutes,
-    ...authDemoRoutes,
+    // ...authRoutes,
+    // ...authDemoRoutes,
 
     // Dashboard routes
     ...dashboardRoutes,
