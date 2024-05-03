@@ -104,7 +104,7 @@ export default function TourItem({ tour, onView, onEdit, onDelete }) {
         {renderRating}
         <Image
           alt={images[0]}
-          src="/assets/camry_1.jpg"
+          src="https://vjbautista8.github.io/DEMO_VON_TEMPLATE/assets/camry_1.jpg"
           sx={{ borderRadius: 1, height: 164, width: 1 }}
         />
       </Stack>
