@@ -11,6 +11,7 @@ import { bgBlur } from 'src/theme/css';
 import { useOffSetTop } from 'src/hooks/use-off-set-top';
 import { useResponsive } from 'src/hooks/use-responsive';
 // components
+import Switch from '@mui/material/Switch';
 import Logo from 'src/components/logo';
 import SvgColor from 'src/components/svg-color';
 import { useSettingsContext } from 'src/components/settings';

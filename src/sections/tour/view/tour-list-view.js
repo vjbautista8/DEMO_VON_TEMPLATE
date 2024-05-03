@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import Tooltip from '@mui/material/Tooltip';
 // routes
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
@@ -16,6 +17,7 @@ import { _tours, _tourGuides, TOUR_SERVICE_OPTIONS, TOUR_SORT_OPTIONS } from 'sr
 // assets
 import { countries } from 'src/assets/data';
 // components
+import Switch from '@mui/material/Switch';
 import Iconify from 'src/components/iconify';
 import EmptyContent from 'src/components/empty-content';
 import { useSettingsContext } from 'src/components/settings';
@@ -141,6 +143,14 @@ export default function TourListView() {
           //
           dateError={dateError}
         />
+        <Button
+          // component={RouterLink}
+          // href={paths.dashboard.tour.new}
+          variant="contained"
+          startIcon={<Iconify icon="solar:refresh-bold" />}
+        >
+          Sync Now
+        </Button>
 
         {/* <TourSort sort={sortBy} onSort={handleSortBy} sortOptions={TOUR_SORT_OPTIONS} /> */}
       </Stack>
@@ -163,16 +173,30 @@ export default function TourListView() {
     <Container maxWidth={settings.themeStretch ? false : 'lg'}>
       <CustomBreadcrumbs
         heading="Inventory Record"
-        links={[{ name: '' }]}
+        links={[
+          {
+            name: 'The Fixed Header above is not included in the demo. Zoho Creator has built-in Header.',
+          },
+        ]}
         action={
-          <Button
-            component={RouterLink}
-            href={paths.dashboard.tour.new}
-            variant="contained"
-            startIcon={<Iconify icon="solar:refresh-bold" />}
-          >
-            Sync Now
-          </Button>
+          <>
+            {/* {settings.themeMode == 'light' ? checked : ''} */}
+            {/* onChange={(newValue) => console.log(newValue.value)} */}
+            {settings.themeMode === 'light' && (
+              <>
+                <Tooltip title="Dark Mode" arrow>
+                  <Switch checked onChange={(newValue) => settings.onUpdate('themeMode', 'dark')} />
+                </Tooltip>
+              </>
+            )}
+            {settings.themeMode === 'dark' && (
+              <>
+                <Tooltip title="Light Mode" arrow>
+                  <Switch onChange={(newValue) => settings.onUpdate('themeMode', 'light')} />
+                </Tooltip>
+              </>
+            )}
+          </>
         }
         sx={{
           mb: { xs: 3, md: 5 },
