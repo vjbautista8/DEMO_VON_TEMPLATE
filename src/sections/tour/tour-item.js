@@ -49,8 +49,8 @@ export default function TourItem({ tour, onView, onEdit, onDelete }) {
       direction="row"
       alignItems="center"
       sx={{
-        top: 8,
-        right: 8,
+        top: 12,
+        right: 12,
         zIndex: 9,
         borderRadius: 1,
         position: 'absolute',
@@ -69,8 +69,8 @@ export default function TourItem({ tour, onView, onEdit, onDelete }) {
       direction="row"
       alignItems="center"
       sx={{
-        top: 8,
-        left: 8,
+        top: 12,
+        left: 12,
         zIndex: 9,
         borderRadius: 1,
         bgcolor: 'grey.800',
@@ -99,29 +99,30 @@ export default function TourItem({ tour, onView, onEdit, onDelete }) {
         p: (theme) => theme.spacing(1, 1, 0, 1),
       }}
     >
+      {renderPrice}
+      {renderRating}
+
       <Stack flexGrow={1} sx={{ position: 'relative' }}>
-        {renderPrice}
-        {renderRating}
         <Image
           alt={images[0]}
           src="https://vjbautista8.github.io/DEMO_VON_TEMPLATE/assets/camry_1.jpg"
           sx={{ borderRadius: 1, height: 164, width: 1 }}
         />
       </Stack>
-      {/* <Stack spacing={0.5}>
+      <Stack spacing={0.5}>
         <Image
           alt={images[1]}
-          src="/assets/camry_1.jpg"
+          src="https://vjbautista8.github.io/DEMO_VON_TEMPLATE/assets/camry_1.jpg"
           ratio="1/1"
           sx={{ borderRadius: 1, width: 80 }}
         />
         <Image
           alt={images[2]}
-          src="/assets/camry_1.jpg"
+          src="https://vjbautista8.github.io/DEMO_VON_TEMPLATE/assets/camry_1.jpg"
           ratio="1/1"
           sx={{ borderRadius: 1, width: 80 }}
         />
-      </Stack> */}
+      </Stack>
     </Stack>
   );
 
